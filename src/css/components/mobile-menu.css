@@ -1,0 +1,28 @@
+/* Botón visible solo en móvil */
+#mobile-menu-button{ display:inline-flex; }
+@media (min-width:768px){ #mobile-menu-button{ display:none; } }
+
+/* Overlay que cubre TODO (incluye header) */
+#mobile-menu{
+  position:fixed; inset:0; height:100dvh; z-index:70;
+  background: rgba(0,0,0,.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transform: translateY(-6%);
+  opacity: 0;
+  transition: transform .28s ease, opacity .28s ease;
+  overflow:auto; overscroll-behavior:contain;
+}
+#mobile-menu.open{ transform: translateY(0); opacity:1; }
+#mobile-menu .nav-mobile-inner{ padding: calc(var(--space-lg) + 8px) var(--space-lg) var(--space-lg); }
+
+.mobile-nav-link{
+  display:block; padding:14px 12px; border-radius:12px;
+  color:#fff; font-weight:600; transition: background var(--transition-fast);
+}
+.mobile-nav-link:hover{ background: var(--dark-gray); }
+
+@media (min-width:768px){ #mobile-menu{ display:none !important; } }
+
+/* Lock de scroll cuando el menú está abierto */
+body.menu-open{ overflow:hidden; touch-action:none; overscroll-behavior:none; }

@@ -1,4 +1,5 @@
 // main.js — Artífices (overlay móvil, scroll-lock, focus trap, tema, etc.)
+import './css/index.css';
 
 (() => {
   const qs  = (s, r = document) => r.querySelector(s);

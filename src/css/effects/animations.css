@@ -1,0 +1,21 @@
+/* Aparecer al hacer scroll */
+.animate-on-scroll{ opacity:0; transform: translateY(18px); transition: opacity .6s ease-out, transform .6s ease-out; }
+.animate-on-scroll.is-visible{ opacity:1; transform: translateY(0); }
+.delay-1{ transition-delay: .1s; }
+.delay-2{ transition-delay: .2s; }
+.delay-3{ transition-delay: .3s; }
+
+/* Accesibilidad: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto !important; }
+  *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition:none !important; }
+  .animate-on-scroll{ opacity:1; transform:none; }
+  body.body::after, .section::after{ animation:none !important; filter:none; }
+}
+
+/* Sin hover (touch) */
+@media (hover:none){
+  .btn:hover, .tile:hover img, .work-media:hover img{ transform:none; }
+  .tile:hover .tile-overlay{ opacity:0; }
+  .btn:hover{ box-shadow:none; }
+}

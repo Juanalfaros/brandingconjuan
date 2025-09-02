@@ -1,0 +1,15 @@
+.works{ display:flex; flex-direction:column; gap:88px; }
+.work{ display:grid; grid-template-columns:1fr; gap:26px; align-items:center; }
+@media (min-width:768px){ .work{ grid-template-columns:1fr 1fr; gap:44px; } }
+.order-md-1{ order:1; }
+.order-md-2{ order:2; }
+@media (max-width:767.98px){ .order-md-1, .order-md-2{ order: initial; } }
+.work-media{ overflow:hidden; border-radius:12px; }
+.work-media img{ transition: transform var(--transition-med); }
+.work-media:hover img{ transform: scale(1.04); }
+.work-copy{ position:relative; }
+.work-card{ background:var(--dark-gray); padding:var(--space-xl); border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.04); }
+.desc-list{ margin-block-start:var(--space-md); padding-inline-start:14px; border-inline-start:2px solid var(--accent); }
+.desc-list div{ display:flex; gap:var(--space-md); align-items:center; margin-block:10px; }
+.desc-list dt{ inline-size:98px; font-weight:700; color:#fff; }
+.desc-list dd{ margin:0; color:var(--light-gray); }

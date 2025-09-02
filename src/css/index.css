@@ -1,0 +1,24 @@
+@layer reset, base, layout, components, utilities, themes;
+
+/* Orden importa mucho: de genérico → específico */
+@import "./tokens.css" layer(base);
+@import "./base.css" layer(base);
+@import "./layout.css" layer(layout);
+
+/* Componentes */
+@import "./components/buttons.css" layer(components);
+@import "./components/header.css" layer(components);
+@import "./components/mobile-menu.css" layer(components);
+@import "./components/hero.css" layer(components);
+@import "./components/cards.css" layer(components);
+@import "./components/gallery.css" layer(components);
+@import "./components/works.css" layer(components);
+@import "./components/contact.css" layer(components);
+@import "./components/footer.css" layer(components);
+
+/* Efectos */
+@import "./effects/blobs.css" layer(utilities);
+@import "./effects/animations.css" layer(utilities);
+
+/* Tema Light al final para que gane la cascada */
+@import "./themes/light.css" layer(themes);
