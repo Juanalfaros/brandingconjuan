@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Juan Javier Alfaro Serrano — Portafolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono&family=Exo:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/style.css">
+</head>
+
+<body class="body">
+  <a href="#inicio" class="sr-only sr-only-focusable">Saltar al contenido</a>
+
+  <!-- Header -->
+  <header id="header" role="banner" class="site-header">
+    <div class="container header-inner">
+      <!-- Logo -->
+      <div class="logo-wrap">
+        <a href="#inicio" class="logo-link">
+          <span aria-hidden="true" class="logo-badge">JAS</span>
+          <span class="logo-text">JuanAlfaroS</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav aria-label="Principal" class="nav-desktop">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#galeria" class="nav-link">Galería</a>
+        <a href="#trabajos" class="nav-link">Trabajos</a>
+        <a href="#sobre" class="nav-link">Sobre mí</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <!-- CTA & Mobile button -->
+      <div class="header-cta">
+        <a href="#contacto" class="btn btn-gradient hide-sm">Hablemos</a>
+        <button id="mobile-menu-button" class="btn-icon" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Abrir menú principal</span>
+          <i id="menu-open-icon" class="ph ph-list icon-24"></i>
+          <i id="menu-close-icon" class="ph ph-x icon-24 is-hidden"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav id="mobile-menu" class="nav-mobile is-hidden" aria-label="Navegación móvil">
+      <div class="nav-mobile-inner">
+        <a href="#inicio" class="mobile-nav-link">Inicio</a>
+        <a href="#servicios" class="mobile-nav-link">Servicios</a>
+        <a href="#galeria" class="mobile-nav-link">Galería</a>
+        <a href="#trabajos" class="mobile-nav-link">Trabajos</a>
+        <a href="#sobre" class="mobile-nav-link">Sobre mí</a>
+        <a href="#contacto" class="mobile-nav-link">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="inicio" tabindex="-1" class="main">
+    <!-- Hero -->
+    <section class="section hero hero-pattern">
+      <div class="container grid-2col gap-64 hero-grid">
+        <div class="hero-copy">
+          <p class="mono tagline animate-on-scroll">// Estrategia • Branding • Dirección de Arte</p>
+          <h1 class="h1 animate-on-scroll delay-1">
+            Marcas claras. <span class="text-gradient">Resultados reales</span>.
+          </h1>
+          <p class="lead animate-on-scroll delay-2">
+            Alineo negocio y creatividad para construir identidades que diferencian, conectan y crecen.
+          </p>
+          <div class="hero-ctas animate-on-scroll delay-3">
+            <a href="#trabajos" class="btn btn-gradient">Ver trabajos</a>
+            <a href="#contacto" class="btn btn-outline">Iniciar proyecto</a>
+          </div>
+          <ul class="bullet-list animate-on-scroll delay-3">
+            <li><i class="ph-fill ph-check-circle bullet-icon"></i>10+ años en estrategia y diseño</li>
+            <li><i class="ph-fill ph-check-circle bullet-icon"></i>Dirección creativa y ejecución</li>
+            <li><i class="ph-fill ph-check-circle bullet-icon"></i>Branding, web y campañas</li>
+          </ul>
+        </div>
+
+        <figure aria-label="Retrato" class="hero-figure animate-on-scroll delay-2">
+          <div class="blob blob-1"></div>
+          <div class="blob blob-2"></div>
+          <img src="img/foto-juan.png" alt="Retrato de Juan Javier Alfaro Serrano" class="hero-img" />
+          <figcaption class="hero-tags">
+            <span>Branding</span><span>Estrategia</span><span>Dirección de Arte</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="section">
+      <div class="container">
+        <header class="section-head animate-on-scroll">
+          <h2 class="h2">Servicios <span class="c-accent">clave</span></h2>
+          <p class="lead-sm">De la investigación a la ejecución, con foco en negocio.</p>
+        </header>
+
+        <div class="cards-3 gap-32">
+          <!-- 1 -->
+          <article class="card glow-on-hover animate-on-scroll">
+            <div class="card-icon"><i class="ph ph-magnifying-glass"></i></div>
+            <h3 class="h3">Estrategia de Marca</h3>
+            <p class="muted">Definimos propósito, posicionamiento y mensajes para competir con claridad.</p>
+            <ul class="list-dash">
+              <li><span class="dash">›</span>Investigación & insights</li>
+              <li><span class="dash">›</span>Arquitectura & territorio</li>
+              <li><span class="dash">›</span>Guía de mensajes</li>
+            </ul>
+          </article>
+
+          <!-- 2 -->
+          <article class="card glow-on-hover animate-on-scroll delay-1">
+            <div class="card-icon"><i class="ph ph-stack"></i></div>
+            <h3 class="h3">Identidad & Sistema</h3>
+            <p class="muted">Logo, tipografía, color y componentes modulares listos para escalar.</p>
+            <ul class="list-dash">
+              <li><span class="dash">›</span>Manual completo</li>
+              <li><span class="dash">›</span>Diseño modular</li>
+              <li><span class="dash">›</span>Kits sociales</li>
+            </ul>
+          </article>
+
+          <!-- 3 -->
+          <article class="card glow-on-hover animate-on-scroll delay-2">
+            <div class="card-icon"><i class="ph ph-code"></i></div>
+            <h3 class="h3">Digital & Campañas</h3>
+            <p class="muted">Sitios, landings y campañas con narrativa y performance consistentes.</p>
+            <ul class="list-dash">
+              <li><span class="dash">›</span>UX/UI & prototipos</li>
+              <li><span class="dash">›</span>Web estática o CMS</li>
+              <li><span class="dash">›</span>Creatividades 360°</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="section section-alt">
+      <div class="container">
+        <header class="section-head animate-on-scroll">
+          <h2 class="h2">Galería de <span class="c-accent">Proyectos</span></h2>
+          <p class="lead-sm">Un vistazo rápido a la diversidad de mi trabajo.</p>
+        </header>
+
+        <div class="gallery-grid animate-on-scroll">
+          <a href="#" class="tile tile--xl">
+            <img src="https://placehold.co/600x600/333333/E85002?text=Branding+Corp" alt="Proyecto de Branding" />
+            <div class="tile-overlay"><h3 class="tile-title">Branding Corporativo</h3></div>
+          </a>
+
+          <a href="#" class="tile">
+            <img src="https://placehold.co/600x600/646464/F9F9F9?text=UI/UX+App" alt="Proyecto de UI/UX" />
+            <div class="tile-overlay"><h3 class="tile-title">UI/UX para App</h3></div>
+          </a>
+
+          <a href="#" class="tile">
+            <img src="https://placehold.co/600x600/A7A7A7/000000?text=Packaging" alt="Proyecto de Packaging" />
+            <div class="tile-overlay"><h3 class="tile-title">Diseño de Packaging</h3></div>
+          </a>
+
+          <a href="#" class="tile tile--wide">
+            <img src="https://placehold.co/600x300/C10801/F9F9F9?text=Web+E-commerce" alt="Proyecto Web" />
+            <div class="tile-overlay"><h3 class="tile-title">Web E-commerce</h3></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trabajos -->
+    <section id="trabajos" class="section">
+      <div class="container">
+        <header class="section-head animate-on-scroll">
+          <h2 class="h2">Trabajos <span class="c-accent">destacados</span></h2>
+          <p class="lead-sm">Una selección de proyectos reales con impacto.</p>
+        </header>
+
+        <div class="works">
+          <!-- 1 -->
+          <article class="work">
+            <div class="work-media animate-on-scroll">
+              <img src="https://placehold.co/800x520/333333/8B5CF6?text=Caso+Aerovan" alt="Caso Aerovan" />
+            </div>
+            <div class="work-copy animate-on-scroll delay-1">
+              <div class="work-card">
+                <h3 class="h3">Reposicionamiento — Aerovan</h3>
+                <p class="muted">Estrategia, identidad y despliegue alineados a objetivos de negocio.</p>
+                <dl class="desc-list">
+                  <div><dt>Rol</dt><dd>Brand Strategy Manager</dd></div>
+                  <div><dt>Duración</dt><dd>3 años</dd></div>
+                  <div><dt>Industria</dt><dd>Transporte</dd></div>
+                </dl>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article class="work">
+            <div class="work-media animate-on-scroll order-md-2">
+              <img src="https://placehold.co/800x520/333333/14B8A6?text=Media+Dream" alt="Campañas Media Dream" />
+            </div>
+            <div class="work-copy animate-on-scroll delay-1 order-md-1">
+              <div class="work-card">
+                <h3 class="h3">Dirección Creativa — Media Dream</h3>
+                <p class="muted">Universos visuales, liderazgo de equipo y campañas memorables.</p>
+                <dl class="desc-list">
+                  <div><dt>Rol</dt><dd>Director de Arte</dd></div>
+                  <div><dt>Duración</dt><dd>2+ años</dd></div>
+                  <div><dt>Industria</dt><dd>Agencia digital</dd></div>
+                </dl>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3 -->
+          <article class="work">
+            <div class="work-media animate-on-scroll">
+              <img src="https://placehold.co/800x520/333333/6EE7B7?text=Artifices+Studio" alt="Artífices Creative Studio" />
+            </div>
+            <div class="work-copy animate-on-scroll delay-1">
+              <div class="work-card">
+                <h3 class="h3">Artífices — Creative Studio</h3>
+                <p class="muted">Co-fundación y dirección comercial con foco en valor y consistencia.</p>
+                <dl class="desc-list">
+                  <div><dt>Rol</dt><dd>Director Comercial</dd></div>
+                  <div><dt>Duración</dt><dd>2024 - Hoy</dd></div>
+                  <div><dt>Industria</dt><dd>Estudio creativo</dd></div>
+                </dl>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="section">
+      <div class="container grid-2col gap-64">
+        <div class="animate-on-scroll">
+          <img src="https://placehold.co/560x640/000000/F9F9F9?text=Proceso+Creativo" alt="Proceso creativo en estudio" class="img-rounded" />
+        </div>
+        <div class="animate-on-scroll delay-1">
+          <p class="mono c-accent mb-16">// Método inmersivo</p>
+          <h2 class="h2 tight">Negocio primero, diseño que perdura</h2>
+          <p class="lead">
+            El mejor diseño nace del diagnóstico correcto. Combino investigación, estrategia y ejecución impecable para crear marcas memorables.
+          </p>
+          <ul class="check-list">
+            <li><i class="ph ph-check c-accent"></i> Brief profundo y mapa competitivo</li>
+            <li><i class="ph ph-check c-accent"></i> Posicionamiento y mensajes diferenciales</li>
+            <li><i class="ph ph-check c-accent"></i> Identidad flexible y escalable</li>
+            <li><i class="ph ph-check c-accent"></i> Entrega con kit listo para crecer</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section">
+      <div class="container">
+        <header class="section-head animate-on-scroll">
+          <h2 class="h2">Construyamos <span class="c-accent">algo grande</span></h2>
+          <p class="lead-sm">Cuéntame el reto y te propongo un camino claro.</p>
+        </header>
+
+        <div class="grid-contact gap-64">
+          <form id="contactForm" novalidate class="form animate-on-scroll">
+            <div class="grid-2col gap-24">
+              <label class="field">
+                <span class="label">Nombre *</span>
+                <input id="name" type="text" placeholder="Tu nombre" required class="input">
+              </label>
+              <label class="field">
+                <span class="label">Email *</span>
+                <input id="email" type="email" placeholder="tucorreo@ejemplo.com" required class="input">
+              </label>
+            </div>
+            <label class="field">
+              <span class="label">Tu mensaje *</span>
+              <textarea id="message" rows="5" placeholder="Cuéntame sobre tu proyecto" required class="input textarea"></textarea>
+            </label>
+            <div>
+              <button type="submit" class="btn btn-gradient">Enviar mensaje</button>
+            </div>
+            <p id="formStatus" aria-live="polite" class="form-status"></p>
+          </form>
+
+          <aside class="contact-aside animate-on-scroll delay-1">
+            <div class="contact-block">
+              <h3 class="h4">Contacto Directo</h3>
+              <a href="mailto:contacto@juanjavieralfaro.com" class="link-muted">contacto@juanjavieralfaro.com</a>
+            </div>
+            <div class="contact-block">
+              <h3 class="h4">Disponibilidad</h3>
+              <p class="muted dot">Abierto a nuevos proyectos</p>
+            </div>
+            <div class="contact-block">
+              <h3 class="h4">Redes</h3>
+              <div class="socials">
+                <a href="#" aria-label="LinkedIn" class="link-muted"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="#" aria-label="GitHub" class="link-muted"><i class="ph ph-github-logo"></i></a>
+                <a href="#" aria-label="Instagram" class="link-muted"><i class="ph ph-instagram-logo"></i></a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo" class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <div class="logo-text-only">JuanAlfaroS</div>
+        <p class="muted mt-8">Estrategia + Creatividad para negocios que buscan diferenciarse.</p>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Navegación</h4>
+        <ul class="footer-list">
+          <li><a href="#inicio" class="link-muted">Inicio</a></li>
+          <li><a href="#servicios" class="link-muted">Servicios</a></li>
+          <li><a href="#galeria" class="link-muted">Galería</a></li>
+          <li><a href="#trabajos" class="link-muted">Trabajos</a></li>
+          <li><a href="#sobre" class="link-muted">Sobre mí</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Contacto</h4>
+        <ul class="footer-list">
+          <li><a href="mailto:contacto@juanjavieralfaro.com" class="link-muted">contacto@thealfarofolio.art</a></li>
+          <li class="muted">Santiago de Chile</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© 2025 Juan Javier Alfaro Serrano</span>
+      <div class="footer-links">
+        <a href="#" class="link-muted">Términos</a>
+        <a href="#" class="link-muted">Privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="src/main.js"></script>
+</body>
+</html>
