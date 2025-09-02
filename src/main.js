@@ -67,3 +67,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   scrollElements.forEach(el => observer.observe(el));
 });
+
+// --- Theme Toggle (Light/Dark Mode) ---
+const themeToggleButton = document.getElementById('theme-toggle');
+const body = document.body;
+const themeIconLight = document.getElementById('theme-icon-light');
+const themeIconDark = document.getElementById('theme-icon-dark');
+
+// Función para aplicar el tema y guardar la preferencia
+const applyTheme = (theme) => {
+  if (theme === 'light') {
+    body.classList.add('light-mode');
+    if (themeIconLight) themeIconLight.classList.add('is-hidden');
+    if (themeIconDark) themeIconDark.classList.remove('is-hidden');
+  } else {
+    body.classList.remove('light-mode');
+    if (themeIconLight) themeIconLight.classList.remove('is-hidden');
+    if (themeIconDark) themeIconDark.classList.add('is-hidden');
+  }
+  localStorage.setItem('theme', theme);
+};
+
+// Cargar el tema guardado o detectar la preferencia del sistema
+const savedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+// Asegúrate de que el DOM esté cargado para manipular clases
+document.addEventListener('DOMContentLoaded', () => {
+  if (savedTheme) {
+    applyTheme(savedTheme);
+  } else {
+    applyTheme(prefersDark ? 'dark' : 'light');
+  }
+
+  // Event listener para el botón
+  if (themeToggleButton) {
+    themeToggleButton.addEventListener('click', () => {
+      const isLight = body.classList.contains('light-mode');
+      applyTheme(isLight ? 'dark' : 'light');
+    });
+  }
+});
