@@ -1,4 +1,4 @@
-// main.js — Artífices (overlay móvil, scroll-lock, focus trap, tema, etc.)
+// main.js — Artífices (overlay móvil, scroll-lock, focus trap, tema, bento grid)
 import './css/index.css';
 
 (() => {
@@ -37,7 +37,7 @@ import './css/index.css';
       mobileMenu.classList.remove('is-hidden');
       requestAnimationFrame(() => mobileMenu.classList.add('open'));
 
-      body.classList.add('menu-open');
+      body.classList.add('menu-open'); // CSS: body.menu-open { overflow: hidden; }
       setMenuAria(true);
 
       if (menuOpenIcon)  menuOpenIcon.classList.add('is-hidden');
@@ -69,7 +69,7 @@ import './css/index.css';
     // Estado ARIA inicial coherente
     if (mobileMenu && mobileMenuButton) {
       const hidden = mobileMenu.classList.contains('is-hidden');
-      setMenuAria(!hidden);
+      setMenuAria(!hidden ? true : false); // hidden => aria-expanded=false / aria-hidden=true
     }
 
     // Toggle botón
@@ -222,5 +222,115 @@ import './css/index.css';
     window.addEventListener('storage', (e) => {
       if (e.key === 'theme' && e.newValue) applyTheme(e.newValue, false);
     });
+
+/* =========================================
+   BENTO GRID — Proyectos Behance (JSON externo, secuencial + skeleton)
+========================================= */
+const galleryGrid = qs('#galleryGrid');
+if (galleryGrid) {
+  const jsonURL = `${import.meta.env.BASE_URL}data/projects.json`; // soporta base en Vite
+
+  const buildTile = (p) => {
+    const a = document.createElement('a');
+    a.href = p.url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer nofollow';
+    a.className = `tile${p.size ? ` tile--${p.size}` : ''} is-loading`;
+    a.setAttribute('aria-label', p.title);
+
+    const img = document.createElement('img');
+    img.alt = p.title;
+    img.decoding = 'async';
+    img.dataset.src = p.image; // no asignamos src aún (secuencial)
+
+    const overlay = document.createElement('div');
+    overlay.className = 'tile-overlay';
+    overlay.innerHTML = `<h3 class="tile-title">${p.title}</h3>`;
+
+    a.append(img, overlay);
+    return a;
+  };
+
+  const delay = (ms) => new Promise(r => setTimeout(r, ms));
+  const SEQUENTIAL_DELAY_MS = 120;
+
+  const loadSequentially = async (tiles) => {
+    for (const tile of tiles) {
+      const img = tile.querySelector('img');
+      const src = img?.dataset?.src;
+      if (!img || !src) continue;
+
+      const loadOne = new Promise((resolve) => {
+        const cleanup = () => {
+          img.removeEventListener('load', onLoad);
+          img.removeEventListener('error', onError);
+        };
+        const onLoad = () => {
+          tile.classList.remove('is-loading');
+          tile.classList.add('is-loaded');
+          cleanup(); resolve();
+        };
+        const onError = () => {
+          tile.remove();
+          cleanup(); resolve();
+        };
+        img.addEventListener('load', onLoad, { once: true });
+        img.addEventListener('error', onError, { once: true });
+        img.src = src; // dispara la descarga de ESTA imagen
+      });
+
+      await loadOne;
+      await delay(SEQUENTIAL_DELAY_MS);
+
+      if (document.hidden) {
+        await new Promise(res => {
+          const resume = () => { document.removeEventListener('visibilitychange', resume); res(); };
+          document.addEventListener('visibilitychange', resume, { once: true });
+        });
+      }
+    }
+  };
+
+  const hydrate = async () => {
+    try {
+      const res = await fetch(jsonURL, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const projects = await res.json();
+      if (!Array.isArray(projects)) throw new Error('JSON inválido: se esperaba un array');
+
+      // Render inicial con skeletons
+      const frag = document.createDocumentFragment();
+      projects.forEach(p => frag.appendChild(buildTile(p)));
+      galleryGrid.innerHTML = ''; // por si existía contenido previo
+      galleryGrid.appendChild(frag);
+
+      const tiles = Array.from(galleryGrid.querySelectorAll('.tile'));
+
+      // Cargar cuando la galería entre a viewport
+      if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              obs.disconnect();
+              loadSequentially(tiles);
+            }
+          });
+        }, { rootMargin: '0px 0px -20% 0px' });
+        obs.observe(galleryGrid);
+      } else {
+        loadSequentially(tiles);
+      }
+    } catch (err) {
+      console.error('[Bento] No se pudo cargar projects.json', err);
+      // Fallback UX: mensaje mínimo
+      galleryGrid.innerHTML = `<p class="muted">No se pudo cargar la galería en este momento.</p>`;
+    }
+  };
+
+  hydrate();
+}
+
+
+
   });
 })();

@@ -1,0 +1,56 @@
+/* src/css/effects/skeleton.css */
+
+/* Colores del skeleton (dark/light) */
+:root {
+  --skel-a: rgba(255, 255, 255, 0.06);
+  --skel-b: rgba(255, 255, 255, 0.14);
+  --skel-c: rgba(255, 255, 255, 0.06);
+}
+body.light-mode {
+  --skel-a: rgba(0, 0, 0, 0.06);
+  --skel-b: rgba(0, 0, 0, 0.12);
+  --skel-c: rgba(0, 0, 0, 0.06);
+}
+
+/* Shimmer */
+@keyframes og-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Estado de carga en tiles */
+.tile {
+  position: relative;
+}
+.tile img {
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.tile.is-loaded img {
+  opacity: 1;
+}
+
+/* Capa skeleton encima hasta que cargue */
+.tile.is-loading::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px; /* igual que .tile */
+  background:
+    linear-gradient(90deg, var(--skel-a) 25%, var(--skel-b) 37%, var(--skel-c) 63%);
+  background-size: 400% 100%;
+  animation: og-shimmer 1.25s linear infinite;
+  z-index: 1;
+}
+
+/* Oculta overlay mientras carga (evita texto sobre shimmer) */
+.tile.is-loading .tile-overlay {
+  opacity: 0 !important;
+}
+
+/* Respeto a reducida animación */
+@media (prefers-reduced-motion: reduce) {
+  .tile.is-loading::before {
+    animation: none;
+  }
+}

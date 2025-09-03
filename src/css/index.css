@@ -19,6 +19,7 @@
 /* Efectos */
 @import "./effects/blobs.css" layer(utilities);
 @import "./effects/animations.css" layer(utilities);
+@import "./effects/skeleton.css";
 
 /* Tema Light al final para que gane la cascada */
 @import "./themes/light.css" layer(themes);
