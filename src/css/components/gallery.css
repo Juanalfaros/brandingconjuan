@@ -1,14 +1,162 @@
-.gallery-grid{ display:grid; grid-template-columns:1fr; gap:var(--space-md); grid-auto-rows:240px; }
-@media (min-width:640px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } }
-@media (min-width:1024px){
-  .gallery-grid{ grid-template-columns:repeat(4,1fr); grid-auto-rows:250px; }
-  .tile--xl{ grid-column: span 2; grid-row: span 2; }
-  .tile--wide{ grid-column: span 2; }
+/* ===== Gallery: grid, tiles, overlay, skeleton y filtros (solo categorías) ===== */
+
+/* Barra de filtros (categorías) */
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm, 8px);
+  align-items: center;
+  justify-content: center;
+  margin-block: var(--space-md, 16px) var(--space-xl, 32px);
 }
-.tile{ position:relative; overflow:hidden; border-radius:12px; isolation:isolate; }
-.tile img{ inline-size:100%; block-size:100%; object-fit:cover; transition: transform var(--transition-med) ease; }
-.tile:hover img{ transform: scale(1.05); }
-.tile-overlay{ position:absolute; inset:0; background:rgba(0,0,0,.7); opacity:0; display:flex; align-items:flex-end; padding:22px; transition: opacity var(--transition-med) ease; }
-.tile:hover .tile-overlay{ opacity:1; }
-.tile:focus-within .tile-overlay{ opacity:1; }
-.tile-title{ margin:0; font-weight:800; }
+
+/* Chip básico */
+.chip {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid rgba(255, 255, 255, .14);
+  background: rgba(255, 255, 255, .04);
+  color: var(--white, #F9F9F9);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font: 600 .95rem/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  transition: background .2s ease, color .2s ease, border-color .2s ease, transform .18s ease;
+  cursor: pointer;
+  user-select: none;
+}
+.chip:hover { transform: translateY(-1px); }
+.chip.is-active {
+  border-color: transparent;
+  background: linear-gradient(90deg, var(--grad-red, #C10801), var(--accent, #E85002));
+  color: #fff;
+}
+
+/* ===== Grid ===== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md, 16px);
+  grid-auto-rows: 240px;
+}
+@media (min-width: 640px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 250px;
+  }
+  .tile--xl   { grid-column: span 2; grid-row: span 2; }
+  .tile--wide { grid-column: span 2; }
+}
+
+/* ===== Tile ===== */
+.tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  isolation: isolate;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .08);
+}
+.tile img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  transform: scale(1.01);
+  transition: transform var(--transition-med, .28s) ease, opacity .28s ease;
+  opacity: 0;
+}
+.tile.is-loaded img { opacity: 1; transform: none; }
+
+/* Badge de marca – oculto por defecto, visible en hover/focus */
+.tile-badge {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-start: 10px;
+  z-index: 2; /* sobre overlay */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font: 700 .85rem/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #fff;
+  background: rgba(0, 0, 0, .55);
+  border: 1px solid rgba(255, 255, 255, .12);
+  backdrop-filter: blur(6px);
+
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .24s ease, transform .24s ease, filter .24s ease;
+  pointer-events: none; /* no captura clicks cuando está visible; el <a> sigue activo */
+}
+.tile-badge::before {
+  content: "";
+  inline-size: 6px;
+  block-size: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--grad-red, #C10801), var(--accent, #E85002));
+}
+
+/* Mostrar badge al hover/focus */
+.tile:hover .tile-badge,
+.tile:focus-visible .tile-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Overlay de título */
+.tile-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .7);
+  opacity: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 22px;
+  transition: opacity var(--transition-med, .28s) ease;
+  z-index: 1;
+}
+.tile:hover .tile-overlay,
+.tile:focus-visible .tile-overlay { opacity: 1; }
+
+.tile-title { margin: 0; font-weight: 800; color: #fff; }
+
+/* ===== Skeleton / shimmer ===== */
+.tile.is-loading::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      rgba(255,255,255,0.06) 25%,
+      rgba(255,255,255,0.12) 37%,
+      rgba(255,255,255,0.06) 63%);
+  background-size: 400% 100%;
+  animation: gallery-shimmer 1.2s linear infinite;
+  z-index: 0;
+}
+@keyframes gallery-shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
+/* Accesibilidad foco */
+.tile:focus-visible {
+  outline: 2px solid var(--accent, #E85002);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(232, 80, 2, .28);
+}
+
+/* Light mode: aprovecha tokens globales; badge más claro */
+body.light-mode .tile-badge {
+  background: rgba(255, 255, 255, .75);
+  color: var(--white, #1A1A1A);
+  border-color: rgba(0, 0, 0, .08);
+}
+
+/* En dispositivos sin hover (táctiles), mostramos el badge para que no se pierda */
+@media (hover: none) {
+  .tile-badge { opacity: 1; transform: none; }
+}
