@@ -1,223 +1,204 @@
-// Galería (Bento) con JSON externo, filtros por categoría (sin marcas),
-// hash routing #galeria/<cat>, skeleton y carga secuencial. Sin dependencias.
+// src/js/gallery.js
+// Galería secuencial + badge de marca en hover + filtros por categoría (opcional)
+// Lee /public/data/projects.json y soporta tamaños: wide, tall, xl, 3x2, 2x3.
 
-(() => {
-  const qs  = (s, r = document) => r.querySelector(s);
-  const qsa = (s, r = document) => Array.from(r.querySelectorAll(s));
+const PROJECTS_URL = `${import.meta.env.BASE_URL}data/projects.json`;
 
-  const galleryGrid = qs('#galleryGrid');
-  if (!galleryGrid) return;
+const qs  = (s, r = document) => r.querySelector(s);
+const qsa = (s, r = document) => Array.from(r.querySelectorAll(s));
 
-  const jsonURL = `${import.meta.env.BASE_URL}data/projects.json`;
+// ====== Estado global para evitar renders solapados ======
+let __renderToken = 0;
+const __timers = new Set();
+function cancelPendingTimers() { for (const t of __timers) clearTimeout(t); __timers.clear(); }
 
-  const gallerySection = galleryGrid.closest('#galeria');
-  const sectionHead    = gallerySection?.querySelector('.section-head');
+// ---------- Helpers UI ----------
+function createSkeleton(size) {
+  const a = document.createElement('div');
+  a.className = `tile tile--skeleton${size ? ` tile--${size}` : ''}`;
+  a.setAttribute('aria-hidden', 'true');
+  a.innerHTML = `
+    <div class="tile__media tile__media--skeleton"></div>
+    <div class="tile__overlay tile__overlay--skeleton">
+      <div class="sk-line"></div>
+      <div class="sk-line sk-line--short"></div>
+    </div>
+  `;
+  return a;
+}
 
-  const CATEGORIES = [
-    { slug: 'all',        label: 'Todos' },
-    { slug: 'branding',   label: 'Branding' },
-    { slug: 'web',        label: 'Web/App' },
-    { slug: 'social',     label: 'Social Media' },
-    { slug: 'packaging',  label: 'Packaging' },
-    { slug: 'editorial',  label: 'Editorial' },
-    { slug: 'publicidad', label: 'Publicidad' }
-  ];
-
-  let ALL = [];
-  let activeCategory = 'all';
-
-  // ----- HASH: #galeria/<cat> (soporta viejo /<cat>/<brand>, ignorando la marca)
-  const parseHash = () => {
-    const h = window.location.hash || '';
-    const m = h.match(/^#galeria(?:\/([a-z-]+))?(?:\/[a-z0-9-]+)?$/i);
-    const cat = m?.[1] || 'all';
-    return { cat };
-  };
-  const updateHash = (cat) => {
-    const base = '#galeria';
-    const c = cat && cat !== 'all' ? `/${cat}` : '';
-    const next = `${base}${c}`;
-    if (window.location.hash !== next) window.location.hash = next;
-  };
-
-  // ----- UI builders
-  const buildChips = (items, activeSlug, onClick) => {
-    const wrap = document.createElement('div');
-    wrap.className = 'gallery-filters';
-    wrap.setAttribute('role', 'toolbar');
-    wrap.setAttribute('aria-label', 'Filtrar por categoría');
-
-    items.forEach(it => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = `chip ${it.slug === activeSlug ? 'is-active' : ''}`;
-      btn.textContent = it.label;
-      btn.dataset.slug = it.slug;
-      btn.setAttribute('aria-pressed', String(it.slug === activeSlug));
-      btn.addEventListener('click', () => onClick(it.slug));
-      wrap.appendChild(btn);
-    });
-    return wrap;
-  };
-
-  const brandText = (p) => p.brandLabel || (p.brand ? p.brand.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) : '');
-
-  const buildTile = (p) => {
-    const a = document.createElement('a');
-    a.href = p.url;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer nofollow';
-    a.className = `tile${p.size ? ` tile--${p.size}` : ''} is-loading`;
-    a.setAttribute('aria-label', p.title);
-    a.dataset.brand = p.brand || '';
-
-    const badge = document.createElement('span');
-    badge.className = 'tile-badge';
-    badge.textContent = brandText(p);
-    if (!badge.textContent) badge.classList.add('is-hidden');
-
-    const img = document.createElement('img');
-    img.alt = p.title;
+// Pre-carga una imagen y devuelve el <img> listo para reusar
+function preloadImage(src, alt = '') {
+  return new Promise((resolve) => {
+    if (!src) return resolve(null);
+    const img = new Image();
+    img.className = 'tile__img';
+    img.alt = alt;
     img.decoding = 'async';
-    img.dataset.src = p.image; // se setea luego (carga secuencial)
+    img.loading = 'eager';            // importante: queremos que cargue ya
+    img.referrerPolicy = 'no-referrer';
 
-    const overlay = document.createElement('div');
-    overlay.className = 'tile-overlay';
-    overlay.innerHTML = `<h3 class="tile-title">${p.title}</h3>`;
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = src;
+  });
+}
 
-    a.append(badge, img, overlay);
-    return a;
-  };
+// Monta skeleton interno + (si carga) <img> dentro del media
+function mountCoverInto(mediaEl, imgOrNull) {
+  // Añade skeleton interno para el fade-in
+  const sk = document.createElement('div');
+  sk.className = 'tile__media--skeleton';
+  mediaEl.appendChild(sk);
 
-  // ----- Carga secuencial
-  const delay = (ms) => new Promise(r => setTimeout(r, ms));
-  const SEQ_DELAY = 120;
-
-  const sequentialLoad = async (tiles) => {
-    for (const tile of tiles) {
-      const img = tile.querySelector('img');
-      const src = img?.dataset?.src;
-      if (!img || !src) continue;
-
-      const done = new Promise((resolve) => {
-        const cleanup = () => {
-          img.removeEventListener('load', onLoad);
-          img.removeEventListener('error', onError);
-        };
-        const onLoad = () => {
-          tile.classList.remove('is-loading');
-          tile.classList.add('is-loaded');
-          cleanup(); resolve();
-        };
-        const onError = () => { tile.remove(); cleanup(); resolve(); };
-        img.addEventListener('load', onLoad, { once: true });
-        img.addEventListener('error', onError, { once: true });
-        img.src = src; // dispara descarga de ESTA imagen
-      });
-
-      await done;
-      await delay(SEQ_DELAY);
-
-      if (document.hidden) {
-        await new Promise(res => {
-          const resume = () => { document.removeEventListener('visibilitychange', resume); res(); };
-          document.addEventListener('visibilitychange', resume, { once: true });
-        });
-      }
-    }
-  };
-
-  // ----- Chips estado
-  const setActiveChip = (container, slug) => {
-    container?.querySelectorAll('.chip').forEach(b => {
-      const is = b.dataset.slug === slug;
-      b.classList.toggle('is-active', is);
-      b.setAttribute('aria-pressed', String(is));
-    });
-  };
-
-  // ----- Render
-  const render = (catSlug = activeCategory) => {
-    activeCategory = catSlug;
-
-    const items = ALL.filter(p => (catSlug === 'all') || (p.category === catSlug));
-
-    const frag = document.createDocumentFragment();
-    items
-      .slice()
-      .sort((a, b) => {
-        const w = (x) => x.size === 'xl' ? 2 : x.size === 'wide' ? 1 : 0;
-        return w(b) - w(a);
-      })
-      .forEach(p => frag.appendChild(buildTile(p)));
-
-    galleryGrid.innerHTML = '';
-    galleryGrid.appendChild(frag);
-
-    const tiles = qsa('.tile', galleryGrid);
-    if ('IntersectionObserver' in window) {
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            obs.disconnect();
-            sequentialLoad(tiles);
-          }
-        });
-      }, { rootMargin: '0px 0px -20% 0px' });
-      obs.observe(galleryGrid);
-    } else {
-      sequentialLoad(tiles);
-    }
-  };
-
-  // ----- Init
-  const hydrate = async () => {
-    try {
-      const res = await fetch(jsonURL, { cache: 'no-store' });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const json = await res.json();
-      if (!Array.isArray(json)) throw new Error('JSON inválido');
-
-      // Soporta ?previewHidden=1 para ver también los ocultos
-      const previewHidden = new URLSearchParams(location.search).has('previewHidden');
-      ALL = (previewHidden ? json : json.filter(p => p.visible !== false)).slice();
-
-      const { cat } = parseHash();
-      activeCategory = CATEGORIES.some(c => c.slug === cat) ? cat : 'all';
-
-      // Filtros (solo categorías)
-      const catsUI = buildChips(CATEGORIES, activeCategory, (slug) => {
-        activeCategory = slug;
-        updateHash(activeCategory);
-        render(activeCategory);
-        setActiveChip(catsUI, activeCategory);
-      });
-
-      // Inserta bajo el header de sección
-      if (sectionHead?.parentNode) {
-        sectionHead.parentNode.insertBefore(catsUI, sectionHead.nextSibling);
-      } else {
-        gallerySection?.prepend(catsUI);
-      }
-
-      render(activeCategory);
-
-      window.addEventListener('hashchange', () => {
-        const { cat: c } = parseHash();
-        activeCategory = CATEGORIES.some(x => x.slug === c) ? c : 'all';
-        render(activeCategory);
-        setActiveChip(qs('.gallery-filters'), activeCategory);
-      });
-    } catch (e) {
-      console.error('[Galería] Error al cargar JSON', e);
-      galleryGrid.innerHTML = `<p class="muted">No se pudo cargar la galería.</p>`;
-    }
-  };
-
-  // DOM ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', hydrate);
+  if (imgOrNull) {
+    // Imagen lista: insértala y quita skeleton
+    mediaEl.appendChild(imgOrNull);
+    if (sk.parentNode === mediaEl) sk.remove();
+    mediaEl.classList.add('is-loaded');
   } else {
-    hydrate();
+    // Si no hay imagen (falló), dejamos el skeleton como fallback
+    sk.classList.add('is-error');
   }
-})();
+}
+
+function createTile(project, preparedImg) {
+  const { title, url, cover, brandLabel, slug, size } = project;
+
+  const a = document.createElement('a');
+  a.href   = url || '#';
+  a.target = url ? '_blank' : '_self';
+  a.rel    = url ? 'noopener noreferrer' : '';
+  a.className = `tile${size ? ` tile--${size}` : ''}`;
+  if (slug) a.dataset.slug = slug;
+
+  const media = document.createElement('div');
+  media.className = 'tile__media';
+
+  // Monta portada con la imagen ya pre-cargada (o fallback)
+  mountCoverInto(media, preparedImg);
+
+  const overlay = document.createElement('div');
+  overlay.className = 'tile__overlay';
+  overlay.innerHTML = `<h3 class="tile__title">${title ?? ''}</h3>`;
+
+  const badge = document.createElement('span');
+  badge.className = 'tile__brand-badge';
+  if (brandLabel) badge.textContent = brandLabel;
+
+  a.append(media, overlay, badge);
+
+  // Abrir lightbox (si lo usas); evita meta-click
+  a.addEventListener('click', (e) => {
+    const metaClick = e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1;
+    if (metaClick) return;
+    e.preventDefault();
+    window.dispatchEvent(new CustomEvent('open-lightbox', { detail: { project } }));
+  });
+
+  return a;
+}
+
+function uniqueCategories(projects) {
+  return [...new Set(projects.map(p => p.category).filter(Boolean))];
+}
+
+function buildFilters(container, categories, onChange) {
+  container.innerHTML = '';
+
+  const mkBtn = (label, val, active = false) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `gf-btn${active ? ' is-active' : ''}`;
+    btn.textContent = label;
+    btn.dataset.filter = val;
+    return btn;
+  };
+
+  container.appendChild(mkBtn('Todo', 'all', true));
+  categories.forEach(cat => container.appendChild(mkBtn(cat, cat)));
+
+  container.addEventListener('click', (e) => {
+    const btn = e.target.closest('.gf-btn');
+    if (!btn || btn.classList.contains('is-active')) return;
+
+    qsa('.gf-btn', container).forEach(b => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    onChange(btn.dataset.filter);
+  });
+}
+
+// ---------- Render secuencial (espera la portada de cada tile) ----------
+async function renderSequential(gridEl, projects) {
+  // Cancela cualquier render en curso
+  const run = ++__renderToken;
+  cancelPendingTimers();
+  gridEl.innerHTML = '';
+
+  for (let i = 0; i < projects.length; i++) {
+    if (run !== __renderToken) return; // cancelado
+
+    const p = projects[i];
+    const skeleton = createSkeleton(p.size);
+    gridEl.appendChild(skeleton);
+
+    // Pre-carga la portada
+    const img = await preloadImage(p.cover, p.title || '');
+
+    if (run !== __renderToken) return; // cancelado durante la espera
+
+    // Crea tile reusando la imagen cargada (o fallback si null)
+    const tile = createTile(p, img);
+
+    // Reemplaza skeleton solo si sigue en el grid
+    if (skeleton.parentNode === gridEl) {
+      gridEl.replaceChild(tile, skeleton);
+    }
+
+    // Pequeño respiro para percibir el efecto "uno a uno"
+    await new Promise((res) => {
+      const t = setTimeout(res, 70);
+      __timers.add(t);
+    });
+  }
+}
+
+// ---------- Init ----------
+export async function initGallery() {
+  const grid = qs('#galleryGrid') || qs('.gallery-grid');
+  if (!grid) return;
+
+  let data = [];
+  try {
+    const res = await fetch(PROJECTS_URL, { cache: 'no-store' });
+    data = await res.json();
+  } catch (e) {
+    console.error('Error cargando projects.json', e);
+    return;
+  }
+
+  // Sanitiza, filtra visibles y normaliza arrays
+  const projects = data
+    .filter(p => p && p.visible !== false)
+    .map(p => ({
+      ...p,
+      images: Array.isArray(p.images) ? p.images : [],
+      videos: Array.isArray(p.videos) ? p.videos : [],
+    }));
+
+  // Filtros por categoría (si existe el contenedor)
+  const filtersWrap = qs('#galleryFilters');
+  if (filtersWrap) {
+    const cats = uniqueCategories(projects);
+    buildFilters(filtersWrap, cats, (filter) => {
+      const list = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+      renderSequential(grid, list);
+    });
+  }
+
+  // Primer render
+  renderSequential(grid, projects);
+}
+
+// Auto-init si se importa directamente desde main.js
+document.addEventListener('DOMContentLoaded', initGallery);

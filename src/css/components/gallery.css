@@ -1,162 +1,263 @@
-/* ===== Gallery: grid, tiles, overlay, skeleton y filtros (solo categorías) ===== */
-
-/* Barra de filtros (categorías) */
-.gallery-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm, 8px);
-  align-items: center;
-  justify-content: center;
-  margin-block: var(--space-md, 16px) var(--space-xl, 32px);
+/* src/css/components/gallery.css */
+/* Usa variables globales si existen; incluye fallbacks */
+:root {
+  --accent: #E85002;
+  --grad-red: #C10801;
+  --white: #F9F9F9;
+  --light-gray: #B8B8B8;
 }
 
-/* Chip básico */
-.chip {
-  appearance: none;
-  -webkit-appearance: none;
-  border: 1px solid rgba(255, 255, 255, .14);
-  background: rgba(255, 255, 255, .04);
-  color: var(--white, #F9F9F9);
-  padding: 10px 14px;
-  border-radius: 999px;
-  font: 600 .95rem/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  transition: background .2s ease, color .2s ease, border-color .2s ease, transform .18s ease;
-  cursor: pointer;
-  user-select: none;
-}
-.chip:hover { transform: translateY(-1px); }
-.chip.is-active {
-  border-color: transparent;
-  background: linear-gradient(90deg, var(--grad-red, #C10801), var(--accent, #E85002));
-  color: #fff;
-}
-
-/* ===== Grid ===== */
+/* Grid responsive tipo bento */
 .gallery-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-md, 16px);
+  gap: 16px;
   grid-auto-rows: 240px;
 }
 @media (min-width: 640px) {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 260px; }
 }
 @media (min-width: 1024px) {
-  .gallery-grid {
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 250px;
-  }
-  .tile--xl   { grid-column: span 2; grid-row: span 2; }
-  .tile--wide { grid-column: span 2; }
+  .gallery-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 250px; }
 }
 
-/* ===== Tile ===== */
+/* Breakpoint del bento (ajústalo si quieres) */
+@media (min-width: 1024px) {
+  /* ya existentes */
+  .tile--wide { grid-column: span 2; }     /* 2×1 */
+  .tile--xl   { grid-column: span 2; grid-row: span 2; } /* 2×2 */
+
+  /* nuevos */
+  .tile--tall { grid-row: span 2; }        /* 1×2 */
+  .tile--full { grid-column: 1 / -1; }     /* 4×1 (toma todo el ancho) */
+  .tile--hero { grid-column: 1 / -1; grid-row: span 2; } /* 4×2 */
+    /* 3 columnas × 2 filas */
+  .tile--3x2 { grid-column: span 3; grid-row: span 2; }
+
+  /* 2 columnas × 3 filas */
+  .tile--2x3 { grid-column: span 2; grid-row: span 3; }
+}
+
+/* Recomendado para que se rellenen huecos */
+.gallery-grid { grid-auto-flow: dense; }
+
+/* (opcional) filas más responsivas que las fijas */
+@media (min-width: 1024px) {
+  .gallery-grid { grid-auto-rows: clamp(180px, 22vw, 260px); }
+}
+
+/* Tile base */
 .tile {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
   isolation: isolate;
-  background: rgba(255, 255, 255, .04);
-  border: 1px solid rgba(255, 255, 255, .08);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  display: block;
+  height: 100%;
 }
-.tile img {
-  inline-size: 100%;
-  block-size: 100%;
+.tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.tile__media,
+.tile__media--skeleton {
+  position: absolute;
+  inset: 0;
+}
+.tile__img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   transform: scale(1.01);
-  transition: transform var(--transition-med, .28s) ease, opacity .28s ease;
-  opacity: 0;
+  transition: transform .35s ease;
+  display: block;
 }
-.tile.is-loaded img { opacity: 1; transform: none; }
+.tile:hover .tile__img { transform: scale(1.06); }
 
-/* Badge de marca – oculto por defecto, visible en hover/focus */
-.tile-badge {
+/* Overlay con título */
+.tile__overlay {
   position: absolute;
-  inset-block-start: 10px;
-  inset-inline-start: 10px;
-  z-index: 2; /* sobre overlay */
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+  background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0) 60%);
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.tile:hover .tile__overlay,
+.tile:focus-within .tile__overlay { opacity: 1; }
+
+.tile__title {
+  margin: 0;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,.45);
+}
+
+/* Badge de marca SOLO en hover/focus */
+.tile__brand-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  padding: 6px 10px;
   border-radius: 999px;
   font: 700 .85rem/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: rgba(0,0,0,.55);
   color: #fff;
-  background: rgba(0, 0, 0, .55);
-  border: 1px solid rgba(255, 255, 255, .12);
-  backdrop-filter: blur(6px);
-
+  border: 1px solid rgba(255,255,255,.12);
   opacity: 0;
   transform: translateY(-6px);
-  transition: opacity .24s ease, transform .24s ease, filter .24s ease;
-  pointer-events: none; /* no captura clicks cuando está visible; el <a> sigue activo */
+  transition: opacity .22s ease, transform .22s ease;
 }
-.tile-badge::before {
-  content: "";
-  inline-size: 6px;
-  block-size: 6px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--grad-red, #C10801), var(--accent, #E85002));
-}
-
-/* Mostrar badge al hover/focus */
-.tile:hover .tile-badge,
-.tile:focus-visible .tile-badge {
+.tile:hover .tile__brand-badge,
+.tile:focus-within .tile__brand-badge {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Overlay de título */
-.tile-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, .7);
-  opacity: 0;
-  display: flex;
-  align-items: flex-end;
-  padding: 22px;
-  transition: opacity var(--transition-med, .28s) ease;
-  z-index: 1;
+/* Skeleton secuencial */
+.tile--skeleton {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
 }
-.tile:hover .tile-overlay,
-.tile:focus-visible .tile-overlay { opacity: 1; }
-
-.tile-title { margin: 0; font-weight: 800; color: #fff; }
-
-/* ===== Skeleton / shimmer ===== */
-.tile.is-loading::before {
-  content: "";
+.tile__overlay--skeleton {
   position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg,
-      rgba(255,255,255,0.06) 25%,
-      rgba(255,255,255,0.12) 37%,
-      rgba(255,255,255,0.06) 63%);
+  inset-inline: 16px;
+  bottom: 14px;
+}
+.sk-line {
+  height: 12px;
+  border-radius: 8px;
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0.05) 25%,
+    rgba(255,255,255,0.12) 37%,
+    rgba(255,255,255,0.05) 63%);
   background-size: 400% 100%;
-  animation: gallery-shimmer 1.2s linear infinite;
-  z-index: 0;
+  animation: sk-shimmer 1.2s linear infinite;
+  margin-bottom: 8px;
 }
-@keyframes gallery-shimmer {
-  0%   { background-position: 100% 0; }
+.sk-line--short { width: 40%; }
+@keyframes sk-shimmer {
+  0% { background-position: 100% 0; }
   100% { background-position: 0 0; }
 }
 
-/* Accesibilidad foco */
-.tile:focus-visible {
-  outline: 2px solid var(--accent, #E85002);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 3px rgba(232, 80, 2, .28);
+/* Barra de filtros (opcional) */
+#galleryFilters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.gf-btn {
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: #fff;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.gf-btn.is-active,
+.gf-btn:hover { border-color: var(--accent); }
+
+/* Light mode tweaks */
+body.light-mode .tile { background: #fff; border-color: #EAEAEA; }
+body.light-mode .tile__overlay { background: linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,0) 60%); }
+body.light-mode .tile__brand-badge {
+  background: rgba(255,255,255,.85);
+  color: #1A1A1A;
+  border-color: rgba(0,0,0,.08);
+}
+body.light-mode .gf-btn { background: rgba(0,0,0,.04); color: #1A1A1A; border-color: rgba(0,0,0,.08); }
+body.light-mode .gf-btn.is-active,
+body.light-mode .gf-btn:hover { border-color: var(--accent); }
+
+/* Media ocupa el alto del tile sin posicionamiento absoluto */
+.tile {
+  position: relative;
+  display: grid;       /* asegura que el hijo tome el alto */
+  height: 100%;
 }
 
-/* Light mode: aprovecha tokens globales; badge más claro */
-body.light-mode .tile-badge {
-  background: rgba(255, 255, 255, .75);
-  color: var(--white, #1A1A1A);
-  border-color: rgba(0, 0, 0, .08);
+.tile__media,
+.tile__media--skeleton {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-/* En dispositivos sin hover (táctiles), mostramos el badge para que no se pierda */
-@media (hover: none) {
-  .tile-badge { opacity: 1; transform: none; }
+.tile__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.01);
+  transition: transform .35s ease;
+}
+
+/* --- Grid base --- */
+.gallery-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+/* --- Tile --- */
+.tile{
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #0d0d0d;
+}
+
+/* Contenedor visual: da altura con aspect-ratio */
+.tile__media{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;          /* base */
+  background: #111;
+  overflow: hidden;
+}
+
+/* Variantes “bento” por proporción (independiente del span CSS grid) */
+.tile--wide .tile__media{ aspect-ratio: 2 / 1; }
+.tile--tall .tile__media{ aspect-ratio: 1 / 2; }
+.tile--xl   .tile__media{ aspect-ratio: 1 / 1; }
+.tile--3x2  .tile__media{ aspect-ratio: 3 / 2; }
+.tile--2x3  .tile__media{ aspect-ratio: 2 / 3; }
+
+/* Imagen ocupa todo el contenedor */
+.tile__img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;                   /* fade-in */
+  transition: opacity .18s ease;
+}
+
+/* Mostrar imagen cuando el media o el tile está 'cargado' */
+.tile__media.is-loaded .tile__img,
+.tile.is-loaded .tile__img{
+  opacity: 1;
+}
+
+/* Skeleton interno que no tape después */
+.tile__media--skeleton{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #1b1b1b, #222, #1b1b1b);
+  background-size: 200% 100%;
+  animation: sk 1.2s linear infinite;
+}
+@keyframes sk {
+  from{ background-position: 100% 0; }
+  to  { background-position: 0 0; }
 }

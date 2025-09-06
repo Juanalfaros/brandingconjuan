@@ -1,6 +1,14 @@
-// main.js — Artífices (overlay móvil, scroll-lock, focus trap, tema, bento grid)
 import './css/index.css';
-import './js/gallery.js';
+import './css/components/gallery.css';
+import './css/components/lightbox.css';
+
+import { initGallery } from './js/gallery.js';
+import { initLightbox } from './js/lightbox.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  initLightbox();
+  initGallery();
+});
 
 (() => {
   const qs  = (s, r = document) => r.querySelector(s);

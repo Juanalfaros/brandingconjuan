@@ -1,232 +1,530 @@
 [
   {
     "title": "Social Media Reels 2023",
-    "url": "https://www.behance.net/gallery/182229333/Social-Media-Reels-2023",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/40417c182229333.Y3JvcCwzODM1LDMwMDAsMCww.jpg",
-    "size": "xl",
-    "category": "social",
+    "slug": "social-media-reels-2023",
     "brand": "varios",
     "brandLabel": "Varios",
-    "visible": true
+    "size": "xl",
+    "category": "social",
+    "url": "https://www.behance.net/gallery/182229333/Social-Media-Reels-2023",
+    "visible": true,
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/40417c182229333.Y3JvcCwzODM1LDMwMDAsMCww.jpg",
+    "images": [],
+    "videos": [
+      "https://www-ccv.adobe.io/v1/player/ccv/WI_MSTd5Lj5/embed?api_key=behance1&bgcolor=%23191919",
+      "https://www-ccv.adobe.io/v1/player/ccv/GuxKa29ha6-/embed?api_key=behance1&bgcolor=%23191919",
+      "https://www-ccv.adobe.io/v1/player/ccv/VBQw6B5KR6E/embed?api_key=behance1&bgcolor=%23191919",
+      "https://www-ccv.adobe.io/v1/player/ccv/9jaK9Ly9ex4/embed?api_key=behance1&bgcolor=%23191919",
+      "https://www-ccv.adobe.io/v1/player/ccv/Bs-7d9LTzN2/embed?api_key=behance1&bgcolor=%23191919",
+      "https://www-ccv.adobe.io/v1/player/ccv/RaABTL2cv8X/embed?api_key=behance1&bgcolor=%23191919",
+      "https://www-ccv.adobe.io/v1/player/ccv/-kbJkkTFiiI/embed?api_key=behance1&bgcolor=%23191919",
+      "https://www-ccv.adobe.io/v1/player/ccv/CMZA5-G7PEL/embed?api_key=behance1&bgcolor=%23191919",
+      "https://www-ccv.adobe.io/v1/player/ccv/LVxn6oG-fhB/embed?api_key=behance1&bgcolor=%23191919"
+    ]
   },
   {
     "title": "Social Media",
+    "slug": "social-media",
     "url": "https://www.behance.net/gallery/179819345/Social-Media",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/479cd4179819345.Y3JvcCwzMTk2LDI0OTksMzAwLDA.jpg",
-    "size": "wide",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/479cd4179819345.Y3JvcCwzMTk2LDI0OTksMzAwLDA.jpg",
     "category": "social",
+    "size": "wide",
     "brand": "varios",
     "brandLabel": "Varios",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/70922d179819345.650063709199b.jpg"
+    ],
+    "videos": []
   },
-
   {
     "title": "Branding Prende Ingeniería & Servicios Eléctricos",
-    "url": "https://www.behance.net/gallery/137452833/Branding-Prende-Ingenieria-Servicios-Elctricos",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/906a82137452833.Y3JvcCw1MDAwLDM5MTAsMCw0OQ.jpg",
-    "category": "branding",
-    "brand": "prende",
+    "slug": "branding-prende-ingenieria-servicios-electricos",
     "brandLabel": "Prende",
-    "visible": true
+    "size": "tall",
+    "brand": "prende",
+    "category": "branding",
+    "url": "https://www.behance.net/gallery/137452833/Branding-Prende-Ingenieria-Servicios-Elctricos",
+    "visible": true,
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/906a82137452833.Y3JvcCw1MDAwLDM5MTAsMCw0OQ.jpg",
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/9282cc137452833.620baf271588b.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/14c759137452833.620baf268aa2d.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/b88ea2137452833.620baf268a073.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1aa39f137452833.620baf26896bd.png"
+    ],
+    "videos": []
   },
   {
     "title": "Imagen Marca SUBUS",
-    "url": "https://www.behance.net/gallery/65144953/Imagen-Marca-SUBUS",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/28f4a565144953.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
-    "size": "xl",
-    "category": "branding",
-    "brand": "subus",
+    "slug": "imagen-marca-subus",
     "brandLabel": "SUBUS",
-    "visible": true
+    "brand": "subus",
+    "category": "branding",
+    "url": "https://www.behance.net/gallery/65144953/Imagen-Marca-SUBUS",
+    "visible": true,
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/28f4a565144953.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/f6cc5365144953.5aea1aae44f6d.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/aeb82965144953.5aea1aae467e6.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/9106d865144953.5aea1aae47766.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/020a6465144953.5aea1aae4491b.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2a8fa365144953.5aea1aae43c52.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/50a02565144953.5aea1aae4111e.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/35ece365144953.5aea1aae442f5.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/6dfd3965144953.5aea1aae41828.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/875ae265144953.5aea1aae3f86c.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/38cebb65144953.5aea1aae404e4.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/591f7365144953.5aea1aae4205d.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/20a3c265144953.5aea1aae3fe1f.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/f9499e65144953.5aea1aae454eb.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/773eed65144953.5aea1aae43472.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/04ad0065144953.5aea1aae4272c.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/70efd865144953.5aea1aae40b8a.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/31c22165144953.5aea1aae46e36.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/ea5b9765144953.5aea1aae4616b.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3cca7b65144953.5aea1aae42e1c.jpg"
+    ],
+    "videos": []
   },
   {
     "title": "Branding Oficinas",
-    "url": "https://www.behance.net/gallery/65145493/Branding-Oficinas",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/bf2f6665145493.Y3JvcCw5NjIsNzUzLDAsMjYz.jpg",
+    "slug": "branding-oficinas",
+    "brandLabel": "SUBUS",
+    "brand": "subus",
     "category": "branding",
-    "brand": "oficinas",
-    "brandLabel": "Oficinas",
-    "visible": true
+    "url": "https://www.behance.net/gallery/65145493/Branding-Oficinas",
+    "visible": true,
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/bf2f6665145493.Y3JvcCw5NjIsNzUzLDAsMjYz.jpg",
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/9282cc137452833.620baf271588b.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/14c759137452833.620baf268aa2d.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/b88ea2137452833.620baf268a073.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1aa39f137452833.620baf26896bd.png",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/19c08a65145493.5aea1df3473ef.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/d5ffd965145493.5aea1df347a62.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/38ecde65145493.5aea1df346604.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/fcd97765145493.5aea1df34868c.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/2d86b265145493.5aea1df3460da.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/cc353265145493.5aea1df347fd1.jpg"
+    ],
+    "videos": []
   },
   {
     "title": "Digital Hive Agency - Branding",
-    "url": "https://www.behance.net/gallery/122068517/Digital-Hive-Agency-Branding",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/0a65e5122068517.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
-    "category": "branding",
-    "brand": "digital-hive",
+    "slug": "digital-hive-agency-branding",
     "brandLabel": "Digital Hive",
-    "visible": true
+    "brand": "digital-hive",
+    "category": "branding",
+    "url": "https://www.behance.net/gallery/122068517/Digital-Hive-Agency-Branding",
+    "visible": true,
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/0a65e5122068517.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/298755122068517.60d23f4606903.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/67c5f2122068517.60d23f4606e54.jpg"
+    ],
+    "videos": []
   },
   {
     "title": "Branding Transportes Zeit",
+    "slug": "branding-transportes-zeit",
     "url": "https://www.behance.net/gallery/122274021/Branding-Transportes-Zeit",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/67f87f122274021.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
-    "size": "wide",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/67f87f122274021.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
     "category": "branding",
     "brand": "zeit",
     "brandLabel": "Transportes Zeit",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_632_webp/ecdd30122274021.60d6091e2a6bb.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/a6512e122274021.60d6091dac294.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/4918e9122274021.60d6091dae8b1.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/0307bd122274021.60d6091dabac7.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/98f515122274021.60d6091dad4d2.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/9593fc122274021.60d6091dacdac.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/33ec64122274021.60d6091dae146.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/c42360122274021.60d6091dada38.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/ae80a6122274021.60d6091daf015.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/29f635122274021.60d6091dac847.jpg"
+    ],
+    "videos": []
   },
   {
     "title": "Enlace 2030",
+    "slug": "enlace-2030",
     "url": "https://www.behance.net/gallery/65146243/Enlace-2030",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/3609c965146243.Y3JvcCw5MDMsNzA2LDUxOSw3NQ.png",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/3609c965146243.Y3JvcCw5MDMsNzA2LDUxOSw3NQ.png",
     "category": "branding",
     "brand": "enlace-2030",
     "brandLabel": "Enlace 2030",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/18bf8665146243.5aea23089c8c2.png",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/60948065146243.5aea23089d475.png",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/7220de65146243.5aea23089cee7.png"
+    ],
+    "videos": []
   },
   {
     "title": "Cordonería Chike",
+    "slug": "cordoneria-chike",
     "url": "https://www.behance.net/gallery/64957353/Cordoneria-Chike",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/091de964957353.5ae343533edac.jpg",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/091de964957353.5ae343533edac.jpg",
     "category": "branding",
     "brand": "chike",
     "brandLabel": "Cordonería Chike",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/32296764957353.5ae3435377312.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/46578064957353.5ae343537816e.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/57a40264957353.5ae3435378611.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/3f074064957353.5ae3435378a9c.jpg"
+    ],
+    "videos": []
   },
-
   {
     "title": "SinTraUnif, Logotipo y Website",
+    "slug": "sintraunif-logotipo-y-website",
     "url": "https://www.behance.net/gallery/122286113/SinTraUnif-Logotipo-y-Website",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/fb088f122286113.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/fb088f122286113.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
     "category": "web",
     "brand": "sintraunif",
     "brandLabel": "SinTraUnif",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/181e60122286113.60d643de946e7.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/409736122286113.60d643de94f70.png"
+    ],
+    "videos": []
   },
   {
     "title": "Blindatek, Logotipo y Website",
+    "slug": "blindatek-logotipo-y-website",
     "url": "https://www.behance.net/gallery/122285871/Blindatek-Logotipo-y-Website",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/923b66122285871.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/923b66122285871.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
     "category": "web",
     "brand": "blindatek",
     "brandLabel": "Blindatek",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/2bb363122285871.60d642972c645.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/e359b9122285871.60d642972cd2d.png"
+    ],
+    "videos": []
   },
   {
     "title": "Aerozono, Logotipo y Website",
+    "slug": "aerozono-logotipo-y-website",
     "url": "https://www.behance.net/gallery/122285569/Aerozono-Logotipo-y-Website",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/738d86122285569.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/738d86122285569.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
     "category": "web",
     "brand": "aerozono",
     "brandLabel": "Aerozono",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/218dad122285569.60d64136798ae.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/39e0b2122285569.60d6409f3e76a.png"
+    ],
+    "videos": []
   },
   {
     "title": "App Corporativa Subus",
+    "slug": "app-corporativa-subus",
     "url": "https://www.behance.net/gallery/70531885/App-Corporativa-Subus",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/d4f60270531885.Y3JvcCwyNzYxLDIxNjAsNjY5LDA.jpg",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/d4f60270531885.Y3JvcCwyNzYxLDIxNjAsNjY5LDA.jpg",
     "category": "web",
     "brand": "subus",
     "brandLabel": "SUBUS",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_632_webp/4cad4770531885.5ba69523623a3.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_632_webp/d5965c70531885.5ba6952361f39.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_632_webp/f1aa2570531885.5ba695236141b.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_632_webp/b9d0d570531885.5ba6952361ab3.jpg"
+    ],
+    "videos": [
+      "https://www-ccv.adobe.io/v1/player/ccv/BGQNAQDq3_Y/embed?api_key=behance1&bgcolor=%23191919",
+      "https://www-ccv.adobe.io/v1/player/ccv/CEDDHJb_Gac/embed?api_key=behance1&bgcolor=%23191919",
+      "https://www-ccv.adobe.io/v1/player/ccv/T3ePTNb6pqk/embed?api_key=behance1&bgcolor=%23191919"
+    ]
   },
-
   {
     "title": "Rediseño Packaging Hummo",
+    "slug": "rediseno-packaging-hummo",
     "url": "https://www.behance.net/gallery/122277281/Rediseno-Packaging-Hummo",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/c5a8b5122277281.Y3JvcCw5MzMsNzMwLDMwNCww.jpg",
-    "size": "wide",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/c5a8b5122277281.Y3JvcCw5MzMsNzMwLDMwNCww.jpg",
     "category": "packaging",
     "brand": "hummo",
     "brandLabel": "Hummo",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a0ca40122277281.60d61764e5432.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/07fbfa122277281.60d61764e6a27.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7f9fa8122277281.60d61764e7f66.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/e315d0122277281.60d61764e35ae.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ab683f122277281.60d61764e7949.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/c6c352122277281.60d61764e3dfe.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/3cded1122277281.60d61764e7281.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/28898e122277281.60d61764e4664.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/add2c5122277281.60d61764e4d21.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1654d6122277281.60d61764e61ec.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9efe2c122277281.60d61764e5ad9.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/885312122277281.60d61764e8a8a.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a83fc9122277281.60d61764e2e38.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/3e1efb122277281.60d61764e85c4.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/e6425b122277281.60d617656917a.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9426ab122277281.60d61765689b8.jpg"
+    ],
+    "videos": []
   },
   {
     "title": "Packaging Hummo",
+    "slug": "packaging-hummo",
     "url": "https://www.behance.net/gallery/122273139/Packaging-Hummo",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/13d5a8122273139.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/13d5a8122273139.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
     "category": "packaging",
     "brand": "hummo",
     "brandLabel": "Hummo",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_632_webp/657226122273139.60d605936c6ff.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/76836c122273139.60d60592c2ee7.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/dbf97f122273139.60d60592c370e.jpg"
+    ],
+    "videos": []
   },
-
   {
     "title": "Catálogos, Manuales y Fichas Técnicas Aerovan",
+    "slug": "catalogos-manuales-y-fichas-tecnicas-aerovan",
     "url": "https://www.behance.net/gallery/122072789/Catalogos-Manuales-y-Fichas-Tcnicas-Aerovan",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/f2bd91122072789.Y3JvcCwxMzgzLDEwODIsNiww.jpg",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/f2bd91122072789.Y3JvcCwxMzgzLDEwODIsNiww.jpg",
     "category": "editorial",
     "brand": "aerovan",
     "brandLabel": "Aerovan",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/25c971122072789.60d251580f250.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/a84f1e122072789.60d251580f99d.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/d9644d122072789.60d2515807bf4.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/d8179c122072789.60d251580c713.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/422406122072789.60d251580e0d6.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/e5f7dc122072789.60d2515808ba6.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/f980f2122072789.60d251580ea7f.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/79ddf5122072789.60d251580b731.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/b9f781122072789.60d251580d9df.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/0ef058122072789.60d251580acb4.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/11b6ae122072789.60d25158095ad.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/85f07d122072789.60d251580d266.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/1f29e0122072789.60d25158a5d16.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/04cb01122072789.60d25158a6456.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/ae5ef8122072789.60d25158a4e63.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7e2804122072789.60d25158a6b41.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/42937e122072789.60d25158a7302.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/ada2ac122072789.60d25158a56db.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/ffc6fd122072789.60d253414a0f4.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/c71804122072789.60d253414b09d.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/9afd09122072789.60d253414b9b5.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/d2c056122072789.60d253414ec74.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/fdbb78122072789.60d253414a90d.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/8fb0b6122072789.60d253414ddd2.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/eea54e122072789.60d2534149a96.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/e576af122072789.60d253414c889.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/ffb498122072789.60d25341493da.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/ca51c8122072789.60d253414e6cb.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/a2e7b8122072789.60d253414f29c.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/ab66b3122072789.60d253414d7e9.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/40049f122072789.60d253414ceaa.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/77c8fe122072789.60d253414c29c.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/a35b15122072789.60d253414fbf4.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/56872e122072789.60d25341503e6.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/258588122072789.60d2534150d54.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/ffe6fd122072789.60d2534218227.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/fdd711122072789.60d2534218c4b.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/a90136122072789.60d25342771f0.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/b2ade7122072789.60d2534276903.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/e079b5122072789.60d2534277a25.jpg"
+    ],
+    "videos": []
   },
   {
     "title": "Manual del Conductor",
+    "slug": "manual-del-conductor",
     "url": "https://www.behance.net/gallery/65137059/Manual-del-Conductor",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/81fe6a65137059.Y3JvcCwyMDUwLDE2MDUsMjI3LDA.jpg",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/81fe6a65137059.Y3JvcCwyMDUwLDE2MDUsMjI3LDA.jpg",
     "category": "editorial",
     "brand": "subus",
     "brandLabel": "SUBUS",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/9201c165137059.5ae9edc5bd7e0.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/3aa16465137059.5ae9edc5be974.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/9b2cb365137059.5ae9edc5bd345.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/922d5c65137059.5ae9edc5bc97c.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/e2ff1b65137059.5ae9edc5be323.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/8a26af65137059.5ae9edc5bde99.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/e4abf965137059.5ae9edc5bcd6b.jpg"
+    ],
+    "videos": []
   },
   {
     "title": "Manual de Señalética",
+    "slug": "manual-de-senaletica",
     "url": "https://www.behance.net/gallery/65126555/Manual-de-Senaltica",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/d1f3bb65126555.Y3JvcCwyNTYzLDIwMDYsMjIxLDA.jpg",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/d1f3bb65126555.Y3JvcCwyNTYzLDIwMDYsMjIxLDA.jpg",
     "category": "editorial",
     "brand": "subus",
     "brandLabel": "SUBUS",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/9cbbb465126555.5ae9b51ba22ba.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/79041c65126555.5ae9b51ba1723.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/ab069965126555.5ae9b51ba0ff6.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/6bcfa665126555.5ae9b51ba27c9.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/92d0da65126555.5ae9b51ba1c83.jpg"
+    ],
+    "videos": []
   },
   {
     "title": "Manual de Procedimientos",
+    "slug": "manual-de-procedimientos",
     "url": "https://www.behance.net/gallery/65133643/Manual-de-Procedimientos",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/85b3a265133643.Y3JvcCwyNzIwLDIxMjksNzc5LDA.jpg",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/85b3a265133643.Y3JvcCwyNzIwLDIxMjksNzc5LDA.jpg",
     "category": "editorial",
     "brand": "subus",
     "brandLabel": "SUBUS",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/2af42865133643.5ae9dae9ce1e9.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/0813e465133643.5ae9dae9cf60a.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/26e86665133643.5ae9dae9ce7a2.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/b0570965133643.5ae9dae9cedbe.jpg"
+    ],
+    "videos": []
   },
-
   {
     "title": "Cordonería Chike - Publicidad, Papelería, E-Commerce",
+    "slug": "cordoneria-chike-publicidad-papeleria-e-commerce",
     "url": "https://www.behance.net/gallery/70475957/Cordoneria-Chike-Publicidad-Papeleria-E-Commerce",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/6e377570475957.Y3JvcCwzMzEzLDI1OTIsMjc4LDA.jpg",
-    "size": "wide",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/6e377570475957.Y3JvcCwzMzEzLDI1OTIsMjc4LDA.jpg",
     "category": "publicidad",
     "brand": "chike",
     "brandLabel": "Cordonería Chike",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/75007f70475957.60d64eb859ce0.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/0e63eb70475957.60d64eb85c09d.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/ae699570475957.60d64eb85b700.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/9c88f070475957.60d64eb85c617.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/bee07770475957.60d64eb85af69.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/4c844470475957.60d64eb85a665.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/c67b0670475957.60d63f3e1937a.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/596f5570475957.60d63f3e19aa3.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/dda9af70475957.60d63f3e1ca1e.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/321daa70475957.60d63f3e1b68f.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/c6597470475957.60d63f3e18d7d.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/826d2570475957.60d63f3e1afb0.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/9fbbba70475957.60d63f3e1a0a0.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/a255e070475957.60d63f3e181d4.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/101dae70475957.60d63f3e1a77e.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/51952f70475957.60d63f3e1c323.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/56b5f070475957.60d63f3e187d2.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/18942a70475957.60d63f3e1bc6e.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/61306370475957.5ba482731efe8.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/e36b7070475957.5ba482731e4e9.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/5c7d3770475957.5ba482731e929.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/24705670475957.5ba482731f451.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/0f220970475957.5ba482731de3d.jpg"
+    ],
+    "videos": []
   },
   {
     "title": "Informativo Nuevas Zonas Pagas",
+    "slug": "informativo-nuevas-zonas-pagas",
     "url": "https://www.behance.net/gallery/65137435/Informativo-Nuevas-Zonas-Pagas",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/4dfb5865137435.Y3JvcCwxMDk5LDg2MCwwLDExNg.jpg",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/4dfb5865137435.Y3JvcCwxMDk5LDg2MCwwLDExNg.jpg",
     "category": "publicidad",
     "brand": "subus",
     "brandLabel": "SUBUS",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/02740665137435.5ae9efd33d185.jpg"
+    ],
+    "videos": []
   },
   {
     "title": "Papertoy Bus Subus",
+    "slug": "papertoy-bus-subus",
     "url": "https://www.behance.net/gallery/65138705/Papertoy-Bus-Subus",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/c088ce65138705.Y3JvcCw3MjYsNTY4LDQ3NiwzMDg.jpg",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/c088ce65138705.Y3JvcCw3MjYsNTY4LDQ3NiwzMDg.jpg",
     "category": "publicidad",
     "brand": "subus",
     "brandLabel": "SUBUS",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/e0b98865138705.5aea1e367f912.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/226d8365138705.5ae9f79034d44.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/4738a465138705.5ae9f7903436d.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/a9907265138705.5ae9f79033ce1.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/02c61e65138705.5ae9f790347a6.jpg"
+    ],
+    "videos": []
   },
-
   {
     "title": "Social Images for Hummo",
+    "slug": "social-images-for-hummo",
     "url": "https://www.behance.net/gallery/113660835/Social-Images-for-Hummo",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/a86d5d113660835.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/a86d5d113660835.Y3JvcCwxNjYyLDEzMDAsMCww.jpg",
     "category": "social",
     "brand": "hummo",
     "brandLabel": "Hummo",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/12868f113660835.60d236f806e1d.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/6bacef113660835.60d236f8140a3.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/70465b113660835.60d236f80faa5.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1bbeaa113660835.60d236f8120a7.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/10961f113660835.60d236f807781.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6a286f113660835.60d236f809d40.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/81139a113660835.60d236f808bad.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/8cbd5c113660835.60d236f809415.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/b03fad113660835.60d236f80d8a7.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/9f0791113660835.60d236f815c65.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/d6131c113660835.60d236f80c548.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/9cefe5113660835.60d236f80ed01.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/9b709a113660835.60d236f80d084.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/caeac1113660835.60d236f80b16b.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/06d6b1113660835.60d236f810523.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7fd220113660835.60d236f81489d.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/3081e3113660835.60d236f80a711.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/b32414113660835.60d236f80e2df.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/f17cbf113660835.60d236f80f4aa.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/149c57113660835.60d236f80bb8c.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/79c17c113660835.60d236f810f68.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/19a598113660835.60d236f80511f.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/4d94e6113660835.60d236f8064a0.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/740b7b113660835.60d236f8081b7.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a19130113660835.60d236f805a9d.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/fb81c0113660835.60d236f8129b8.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/a920da113660835.60d236f8131eb.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/244383113660835.60d236f8156af.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7052ba113660835.60d236f813854.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/721544113660835.60d236f8164cc.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/fs/b71361113660835.60d236f814fc0.jpg",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ef80ab113660835.60d236f81194c.jpg"
+    ],
+    "videos": []
   },
-
   {
     "title": "Nuevas Rutas Buses",
+    "slug": "nuevas-rutas-buses",
     "url": "https://www.behance.net/gallery/62094557/Nuevas-Rutas-Buses",
-    "image": "https://mir-s3-cdn-cf.behance.net/projects/404/1ff66a62094557.Y3JvcCwxOTI0LDE1MDYsMCww.jpg",
-    "size": "wide",
+    "cover": "https://mir-s3-cdn-cf.behance.net/projects/404/1ff66a62094557.Y3JvcCwxOTI0LDE1MDYsMCww.jpg",
     "category": "publicidad",
     "brand": "subus",
     "brandLabel": "SUBUS",
-    "visible": true
+    "visible": true,
+    "images": [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/0846d062094557.5a8489ae779e1.jpg"
+    ],
+    "videos": []
   }
 ]
